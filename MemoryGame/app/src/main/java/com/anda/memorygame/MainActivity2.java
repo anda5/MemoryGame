@@ -1,29 +1,21 @@
 package com.anda.memorygame;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
-public class SecondActivity extends ActionBarActivity {
-
-    private ImageView imageView,img1,img2,img3,img4,imageViewbtn;
+public class MainActivity2 extends ActionBarActivity {
+    private ImageView imageView,imageViewbtn;
     private int pressed[] ={ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     private int pressed1[] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     private int score=0;
@@ -76,15 +68,10 @@ public class SecondActivity extends ActionBarActivity {
             R.id.imageView31,
             R.id.imageView32,
     };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.activity_main_activity2);
 
         changeImage(findImage(imageView, 0),findImage(imageView, 1),0);
         changeImage(findImage(imageView, 2),findImage(imageView, 3),1);
@@ -102,10 +89,6 @@ public class SecondActivity extends ActionBarActivity {
         changeImage(findImage(imageView, 24),findImage(imageView, 25),13);
         changeImage(findImage(imageView, 27),findImage(imageView, 29),14);
 
-
-
-
-
         setTimer();
         imageViewbtn=(ImageView)findViewById(R.id.imageView13);
         imageViewbtn.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +102,8 @@ public class SecondActivity extends ActionBarActivity {
         });
 
 
+
+
     }
     public void setTimer() {
         final TextView _tv = (TextView) findViewById( R.id.textView5 );
@@ -126,7 +111,7 @@ public class SecondActivity extends ActionBarActivity {
 
             public void onTick(long millisUntilFinished) {
                 _tv.setText(new SimpleDateFormat("mm:ss").format(new Date( millisUntilFinished)));
-                if(score==8) {
+                if(score==15) {
                     _tv.setText("you win!");
 
                 }
@@ -134,7 +119,7 @@ public class SecondActivity extends ActionBarActivity {
 
             public void onFinish() {
                 score+=2;
-                if(score!=8){
+                if(score!= 15){
                     _tv.setText("you lost!");
 
                 }
@@ -173,7 +158,7 @@ public class SecondActivity extends ActionBarActivity {
                             scoreTextView.setText(String.valueOf(score));
 
                         } else {
-                            firstImage.setImageResource(R.drawable.photo);
+                            firstImage.setImageResource(R.drawable.s1);
                             pressed[number] = 0;
                         }
 
@@ -201,7 +186,7 @@ public class SecondActivity extends ActionBarActivity {
                         }
 
                         else {
-                            lastImage.setImageResource(R.drawable.photo);
+                            lastImage.setImageResource(R.drawable.s1);
                             pressed1[number] = 0;
                         }
 
@@ -215,12 +200,10 @@ public class SecondActivity extends ActionBarActivity {
     }
 
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_activity2, menu);
         return true;
     }
 
@@ -238,10 +221,4 @@ public class SecondActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
-
-
-
-
-
