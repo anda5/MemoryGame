@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -73,13 +75,32 @@ public class MainActivity extends ActionBarActivity {
         changeImage(findImage(imageView, 13),findImage(imageView, 12),6);
         changeImage(findImage(imageView, 14),findImage(imageView, 15),7);
 
-
+       setTimer();
 
 
     }
+   public void setTimer() {
+       final TextView _tv = (TextView) findViewById( R.id.textView5 );
+       new CountDownTimer(60000, 1000) {
 
+           public void onTick(long millisUntilFinished) {
+               _tv.setText(new SimpleDateFormat("mm:ss").format(new Date( millisUntilFinished)));
+               if(score==8) {
+                   _tv.setText("you win!");
 
+               }
+           }
 
+           public void onFinish() {
+               score+=2;
+               if(score!=8){
+                  _tv.setText("you lost!");
+
+               }
+           }
+       }.start();
+
+   }
 
     private ImageView findImage(ImageView img,int number){
 
