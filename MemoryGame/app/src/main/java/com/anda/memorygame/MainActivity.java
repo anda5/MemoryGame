@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import java.util.Random;
@@ -22,7 +23,8 @@ public class MainActivity extends ActionBarActivity {
      private ImageView imageView,img1,img2,img3,img4;
      private int pressed[] ={ 0,0,0,0,0,0,0,0,0};
      private int pressed1[] ={0,0,0,0,0,0,0,0,0};
-     private int[] p = {R.drawable.img,
+     private int score=0;
+     private int[] p = {R.drawable.img8,
                         R.drawable.img1,
                         R.drawable.img2,
                         R.drawable.img3,
@@ -30,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
                         R.drawable.img5,
                         R.drawable.img6,
                         R.drawable.img7,
-                        R.drawable.img8
+
                         };
      private int[] image = {R.id.imageView,
                             R.id.imageView2,
@@ -79,25 +81,6 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
-
-
-
-
-
-
-
-    private void setImages(){
-
-
-
-
-
-
-
-    }
-
-
     private ImageView findImage(ImageView img,int number){
 
        img = (ImageView)this.findViewById(image[number]);
@@ -122,6 +105,10 @@ public class MainActivity extends ActionBarActivity {
                         if (pressed1[number] == 1) {
                             firstImage.setImageResource(p[number]);
                             pressed[number] = 1;
+
+                                score++;
+                                TextView scoreTextView = (TextView)findViewById(R.id.textView4);
+                                scoreTextView.setText(String.valueOf(score));
 
                         } else {
                             firstImage.setImageResource(R.drawable.photo);
@@ -160,6 +147,7 @@ public class MainActivity extends ActionBarActivity {
                 }.start();
             }
         });
+
 
 
     }
