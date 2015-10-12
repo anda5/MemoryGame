@@ -1,6 +1,5 @@
 package com.anda.memorygame;
 
-
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.CountDownTimer;
@@ -22,39 +21,61 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MainActivity extends ActionBarActivity {
+public class SecondActivity extends ActionBarActivity {
 
-     private ImageView imageView,img1,img2,img3,img4,imageViewbtn;
-     private int pressed[] ={ 0,0,0,0,0,0,0,0,0};
-     private int pressed1[] ={0,0,0,0,0,0,0,0,0};
-     private int score=0;
-     private int[] p = {R.drawable.img8,
-                        R.drawable.img1,
-                        R.drawable.img2,
-                        R.drawable.img3,
-                        R.drawable.img4,
-                        R.drawable.img5,
-                        R.drawable.img6,
-                        R.drawable.img7,
+    private ImageView imageView,img1,img2,img3,img4,imageViewbtn;
+    private int pressed[] ={ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    private int pressed1[] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    private int score=0;
+    private int[] p = {R.drawable.img01,
+            R.drawable.img02,
+            R.drawable.img03,
+            R.drawable.img_04,
+            R.drawable.img05,
+            R.drawable.img06,
+            R.drawable.img07,
+            R.drawable.img08,
+            R.drawable.img09,
+            R.drawable.img10,
+            R.drawable.img11,
+            R.drawable.img12,
+            R.drawable.img13,
+            R.drawable.img014,
+            R.drawable.img15
 
-                        };
-     private int[] image = {R.id.imageView,
-                            R.id.imageView2,
-                            R.id.imageView3,
-                            R.id.imageView4,
-                            R.id.imageView5,
-                            R.id.imageView6,
-                            R.id.imageView7,
-                            R.id.imageView16,
-                            R.id.imageView9,
-                            R.id.imageView12,
-                            R.id.imageView10,
-                            R.id.imageView14,
-                            R.id.imageView15,
-                            R.id.imageView11,
-                            R.id.imageView17,
-                            R.id.imageView18,
-                            };
+
+    };
+    private int[] image = {R.id.imageView,
+            R.id.imageView2,
+            R.id.imageView3,
+            R.id.imageView4,
+            R.id.imageView5,
+            R.id.imageView6,
+            R.id.imageView7,
+            R.id.imageView16,
+            R.id.imageView9,
+            R.id.imageView12,
+            R.id.imageView10,
+            R.id.imageView14,
+            R.id.imageView15,
+            R.id.imageView11,
+            R.id.imageView17,
+            R.id.imageView18,
+            R.id.imageView19,
+            R.id.imageView20,
+            R.id.imageView21,
+            R.id.imageView22,
+            R.id.imageView23,
+            R.id.imageView24,
+            R.id.imageView25,
+            R.id.imageView26,
+            R.id.imageView27,
+            R.id.imageView28,
+            R.id.imageView29,
+            R.id.imageView30,
+            R.id.imageView31,
+            R.id.imageView32,
+    };
 
 
     @Override
@@ -62,10 +83,7 @@ public class MainActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         img1 = findImage(imageView,0);
-         img2 = findImage(imageView,1);
-         img3 = findImage(imageView,2);
-         img4 = findImage(imageView,3);
+
 
 
         changeImage(findImage(imageView, 0),findImage(imageView, 1),0);
@@ -76,8 +94,19 @@ public class MainActivity extends ActionBarActivity {
         changeImage(findImage(imageView, 10),findImage(imageView, 11),5);
         changeImage(findImage(imageView, 13),findImage(imageView, 12),6);
         changeImage(findImage(imageView, 14),findImage(imageView, 15),7);
+        changeImage(findImage(imageView, 16),findImage(imageView, 18),8);
+        changeImage(findImage(imageView, 19),findImage(imageView, 17),9);
+        changeImage(findImage(imageView, 20),findImage(imageView, 22),10);
+        changeImage(findImage(imageView, 23),findImage(imageView, 21),11);
+        changeImage(findImage(imageView, 26),findImage(imageView, 28),12);
+        changeImage(findImage(imageView, 24),findImage(imageView, 25),13);
+        changeImage(findImage(imageView, 27),findImage(imageView, 29),14);
 
-       setTimer();
+
+
+
+
+        setTimer();
         imageViewbtn=(ImageView)findViewById(R.id.imageView13);
         imageViewbtn.setOnClickListener(new View.OnClickListener() {
 
@@ -91,33 +120,33 @@ public class MainActivity extends ActionBarActivity {
 
 
     }
-   public void setTimer() {
-       final TextView _tv = (TextView) findViewById( R.id.textView5 );
-       new CountDownTimer(60000, 1000) {
+    public void setTimer() {
+        final TextView _tv = (TextView) findViewById( R.id.textView5 );
+        new CountDownTimer(60000, 1000) {
 
-           public void onTick(long millisUntilFinished) {
-               _tv.setText(new SimpleDateFormat("mm:ss").format(new Date( millisUntilFinished)));
-               if(score==8) {
-                   _tv.setText("you win!");
+            public void onTick(long millisUntilFinished) {
+                _tv.setText(new SimpleDateFormat("mm:ss").format(new Date( millisUntilFinished)));
+                if(score==8) {
+                    _tv.setText("you win!");
 
-               }
-           }
+                }
+            }
 
-           public void onFinish() {
-               score+=2;
-               if(score!=8){
-                  _tv.setText("you lost!");
+            public void onFinish() {
+                score+=2;
+                if(score!=8){
+                    _tv.setText("you lost!");
 
-               }
-           }
-       }.start();
+                }
+            }
+        }.start();
 
-   }
+    }
 
     private ImageView findImage(ImageView img,int number){
 
-       img = (ImageView)this.findViewById(image[number]);
-       return img;
+        img = (ImageView)this.findViewById(image[number]);
+        return img;
     }
 
     private void changeImage(final ImageView firstImage,final ImageView lastImage, final int number) {
@@ -139,9 +168,9 @@ public class MainActivity extends ActionBarActivity {
                             firstImage.setImageResource(p[number]);
                             pressed[number] = 1;
 
-                                score++;
-                                TextView scoreTextView = (TextView)findViewById(R.id.textView4);
-                                scoreTextView.setText(String.valueOf(score));
+                            score++;
+                            TextView scoreTextView = (TextView)findViewById(R.id.textView4);
+                            scoreTextView.setText(String.valueOf(score));
 
                         } else {
                             firstImage.setImageResource(R.drawable.photo);
@@ -210,24 +239,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
