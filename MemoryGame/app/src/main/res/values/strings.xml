@@ -7,5 +7,6 @@
     <string name="title_activity_first">FirstActivity</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="title_activity_main_activity3">MainActivity3</string>
 
 </resources>

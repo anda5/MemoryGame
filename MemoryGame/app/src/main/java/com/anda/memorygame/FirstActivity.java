@@ -12,7 +12,7 @@ import android.widget.Button;
 public class FirstActivity extends ActionBarActivity {
 
 
-    private Button button,button1;
+    private Button button,button1,button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,17 @@ public class FirstActivity extends ActionBarActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        button2=(Button)findViewById(R.id.button3);
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                 startActivity(intent);
             }
         });
